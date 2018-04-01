@@ -11,7 +11,9 @@ written to run once a day
 
 Comments/critiques welcome
 
-First, get an api key from imodules
+First, review https://support.imodules.com/hc/en-us/articles/228929707-Email-Metric-API
+
+Then get an api key from imodules
 
 import jason into postman.
 
