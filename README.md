@@ -23,6 +23,8 @@ update the bearer token in the rest of the api calls to be the access_token you 
 
 in create_tables_views.pdc change pitt_advance to your schema and alter the tablespaces and grants appropriately then run to create oracle structure.
 
+load up the package located in iModules_emailAPI.pck into your oracle schema.
+
 download ksh and php into a directory.  Update:
   REPLACE_ORACLE_HOST to host name where the DB is located
   REPLACE_ORACLE_SID to the sid

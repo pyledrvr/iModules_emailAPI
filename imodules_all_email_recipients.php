@@ -98,7 +98,7 @@ $exerror = OCI_Execute($st, OCI_COMMIT_ON_SUCCESS);
 }
 } 
 OCI_Free_Statement($st);
-$cmdstr = "begin pitt_advance.imodules_proc.imodules_all_email_recipients; end;";
+$cmdstr = "begin pitt_advance.iModules_emailAPI.imodules_all_email_recipients; end;";
 $st = OCI_Parse($db_conn, $cmdstr);
 if (!$st) {
     error_log("Unable to parse");

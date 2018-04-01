@@ -110,14 +110,14 @@ if (!$st) {
 }
 $exerror = OCI_Execute($st, OCI_COMMIT_ON_SUCCESS);  
 OCI_Free_Statement($st);}
-$cmdstr = "begin pitt_advance.imodules_proc.im_emails_all_headers_setup; end;";
+$cmdstr = "begin pitt_advance.iModules_emailAPI.im_emails_all_headers_setup; end;";
 $st = OCI_Parse($db_conn, $cmdstr);
 if (!$st) {
     error_log("Unable to parse");
     error_log(OCI_Error($db_conn));
 }
 $exerror = OCI_Execute($st, OCI_COMMIT_ON_SUCCESS);  
-echo "imodules_proc.im_emails_all_headers_setup \n";
+echo "iModules_emailAPI.im_emails_all_headers_setup \n";
 OCI_Free_Statement($st);
 echo " \n imodules_all_email_message_headers.php all done. \n";
 oci_close($db_conn); 
