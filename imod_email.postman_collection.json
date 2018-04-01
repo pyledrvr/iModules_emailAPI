@@ -1,0 +1,589 @@
+{
+	"id": "048bd079-a4bb-49c5-8dcd-55b92d5a0cad",
+	"name": "imod_email",
+	"description": null,
+	"auth": null,
+	"events": null,
+	"variables": null,
+	"order": [
+		"13f0b159-75aa-4574-a9fa-694c19d1338e",
+		"e04b0383-fb48-42f2-bb84-dbee2539c4c2",
+		"74dfd131-da82-4f0f-abb5-4bd510c0ba69",
+		"014c642e-7836-434b-a677-6c11e787b40b",
+		"01820a97-fce7-47e5-a830-ddb3d6543f89",
+		"a834cc85-f52f-4d39-b466-7c4755855487",
+		"767bce9d-4370-44e8-bb9d-9f8d15484af3",
+		"89224146-e817-4c32-b5b8-91e9e593bcc4"
+	],
+	"folders_order": [],
+	"folders": [],
+	"requests": [
+		{
+			"id": "014c642e-7836-434b-a677-6c11e787b40b",
+			"name": "Clicks",
+			"url": "https://emapi.imodules.com/v2/messages/REPLACE_ME_WITH_MESSAGE_ID/clicks?startAt=0&maxResults=1000",
+			"description": "Clicks",
+			"data": [],
+			"dataMode": "params",
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Authorization",
+					"value": "Bearer REPLACE_ME_WITH_access_token",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [
+				{
+					"key": "startAt",
+					"value": "0",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "maxResults",
+					"value": "1000",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"auth": null,
+			"events": null,
+			"folder": null,
+			"responses": [
+				{
+					"id": "f470c18e-7636-4af8-ae71-93268e395b2b",
+					"name": "opens",
+					"status": "",
+					"mime": "",
+					"language": "json",
+					"text": "{\"message\": \"Endpoint request timed out\"}",
+					"responseCode": {
+						"code": 504,
+						"name": "Gateway Timeout"
+					},
+					"requestObject": {
+						"url": "https://emapi.imodules.com/v2/messages/REPLACE_ME_WITH_MESSAGE_ID/opens?startAt=0&maxResults=1000",
+						"pathVariables": {},
+						"pathVariableData": [],
+						"queryParams": [
+							{
+								"key": "startAt",
+								"value": "0",
+								"equals": true,
+								"description": "",
+								"enabled": true
+							},
+							{
+								"key": "maxResults",
+								"value": "1000",
+								"equals": true,
+								"description": "",
+								"enabled": true
+							}
+						],
+						"headerData": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"enabled": true,
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer REPLACE_ME_WITH_access_token",
+								"enabled": true,
+								"description": ""
+							}
+						],
+						"headers": "Accept: application/json\nAuthorization: Bearer REPLACE_ME_WITH_access_token\n",
+						"data": [],
+						"method": "GET",
+						"dataMode": "params"
+					},
+					"headers": [
+						{
+							"name": "Connection",
+							"key": "Connection",
+							"value": "keep-alive",
+							"description": ""
+						},
+						{
+							"name": "Content-Length",
+							"key": "Content-Length",
+							"value": "41",
+							"description": ""
+						},
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": ""
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Tue, 01 Aug 2017 16:31:18 GMT",
+							"description": ""
+						},
+						{
+							"name": "Via",
+							"key": "Via",
+							"value": "1.1 b01831623dd4f0e4e4bccb0793c852ec.cloudfront.net (CloudFront)",
+							"description": ""
+						},
+						{
+							"name": "X-Amz-Cf-Id",
+							"key": "X-Amz-Cf-Id",
+							"value": "PSW6-CpsW7e63LlgukV2c1f-MSRW5FWkrTnv3Gq3Rgm9AuGncNuvJA==",
+							"description": ""
+						},
+						{
+							"name": "X-Cache",
+							"key": "X-Cache",
+							"value": "Error from cloudfront",
+							"description": ""
+						},
+						{
+							"name": "x-amzn-RequestId",
+							"key": "x-amzn-RequestId",
+							"value": "c72c7d97-76d6-11e7-915a-25ab21d567c7",
+							"description": ""
+						}
+					],
+					"cookies": [
+						{
+							"domain": ".imodules.com",
+							"expirationDate": 1529072925,
+							"hostOnly": false,
+							"httpOnly": false,
+							"name": "_at_id.bostoncollegealumni.imodules.45ec",
+							"path": "/",
+							"sameSite": "no_restriction",
+							"secure": false,
+							"session": false,
+							"storeId": "0",
+							"value": "1a5b15fae46d9f47.1466000926.1.1466000926.1466000926.0.0."
+						},
+						{
+							"domain": ".imodules.com",
+							"expirationDate": 1509112677.27482,
+							"hostOnly": false,
+							"httpOnly": true,
+							"name": "__cfduid",
+							"path": "/",
+							"sameSite": "no_restriction",
+							"secure": false,
+							"session": false,
+							"storeId": "0",
+							"value": "d569e622ffc8a5746920abc1063b493d31477576677"
+						},
+						{
+							"domain": ".imodules.com",
+							"expirationDate": 1562522748,
+							"hostOnly": false,
+							"httpOnly": false,
+							"name": "__utma",
+							"path": "/",
+							"sameSite": "no_restriction",
+							"secure": false,
+							"session": false,
+							"storeId": "0",
+							"value": "123725715.984369040.1464866323.1496856107.1499450662.7"
+						},
+						{
+							"domain": ".imodules.com",
+							"hostOnly": false,
+							"httpOnly": false,
+							"name": "__utmc",
+							"path": "/",
+							"sameSite": "no_restriction",
+							"secure": false,
+							"session": true,
+							"storeId": "0",
+							"value": "123725715"
+						},
+						{
+							"domain": ".imodules.com",
+							"expirationDate": 1515218748,
+							"hostOnly": false,
+							"httpOnly": false,
+							"name": "__utmz",
+							"path": "/",
+							"sameSite": "no_restriction",
+							"secure": false,
+							"session": false,
+							"storeId": "0",
+							"value": "123725715.1499450662.7.4.utmcsr=clients.imodules.com|utmccn=(referral)|utmcmd=referral|utmcct=/s/1333/16/imodsSearch.html"
+						},
+						{
+							"domain": ".imodules.com",
+							"expirationDate": 1564659130,
+							"hostOnly": false,
+							"httpOnly": false,
+							"name": "_hp2_id.2689279202",
+							"path": "/",
+							"sameSite": "no_restriction",
+							"secure": true,
+							"session": false,
+							"storeId": "0",
+							"value": "%7B%22userId%22%3Anull%2C%22pageviewId%22%3A%222231397979150075%22%2C%22sessionId%22%3A%226350882219358741%22%2C%22identity%22%3A%221585_218916%22%2C%22trackerVersion%22%3A%223.0%22%7D"
+						},
+						{
+							"domain": ".imodules.com",
+							"expirationDate": 1564659130,
+							"hostOnly": false,
+							"httpOnly": false,
+							"name": "_ga",
+							"path": "/",
+							"sameSite": "no_restriction",
+							"secure": false,
+							"session": false,
+							"storeId": "0",
+							"value": "GA1.2.1926476128.1500308660"
+						},
+						{
+							"domain": ".imodules.com",
+							"expirationDate": 1501673530,
+							"hostOnly": false,
+							"httpOnly": false,
+							"name": "_gid",
+							"path": "/",
+							"sameSite": "no_restriction",
+							"secure": false,
+							"session": false,
+							"storeId": "0",
+							"value": "GA1.2.1150114480.1501587131"
+						}
+					],
+					"request": "014c642e-7836-434b-a677-6c11e787b40b",
+					"collection": "048bd079-a4bb-49c5-8dcd-55b92d5a0cad"
+				}
+			],
+			"headers": "Accept: application/json\nAuthorization: Bearer REPLACE_ME_WITH_access_token\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "01820a97-fce7-47e5-a830-ddb3d6543f89",
+			"name": "bounces",
+			"url": "https://emapi.imodules.com/v2/messages/REPLACE_ME_WITH_MESSAGE_ID/bounces?startAt=0&maxResults=1000",
+			"description": "Clicks",
+			"data": [],
+			"dataMode": "params",
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Authorization",
+					"value": "Bearer REPLACE_ME_WITH_access_token",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [
+				{
+					"key": "startAt",
+					"value": "0",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "maxResults",
+					"value": "1000",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"auth": null,
+			"events": null,
+			"folder": null,
+			"headers": "Accept: application/json\nAuthorization: Bearer REPLACE_ME_WITH_access_token\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "13f0b159-75aa-4574-a9fa-694c19d1338e",
+			"name": "get JSON key for email stats",
+			"url": "http://REPLACE_ME.imodules.com/apiservices/authenticate",
+			"description": "get JSON key for email stats",
+			"data": [
+				{
+					"key": "client_id",
+					"value": "REPLACE_ME",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "client_secret",
+					"value": "REPLACE_ME_API_KEY",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "grant_type",
+					"value": "email_api_auth_key",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/x-www-form-urlencoded",
+					"enabled": true,
+					"description": ""
+				}
+			],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": null,
+			"headers": "Content-Type: application/x-www-form-urlencoded\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "74dfd131-da82-4f0f-abb5-4bd510c0ba69",
+			"name": "single email header data",
+			"url": "https://emapi.imodules.com/v2/messages/REPLACE_ME_WITH_MESSAGE_ID",
+			"description": "single email header data",
+			"data": [],
+			"dataMode": "params",
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json;charset=UTF-8",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Authorization",
+					"value": "Bearer REPLACE_ME_WITH_access_token",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": null,
+			"headers": "Accept: application/json;charset=UTF-8\nAuthorization: Bearer REPLACE_ME_WITH_access_token\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "767bce9d-4370-44e8-bb9d-9f8d15484af3",
+			"name": "Recipients",
+			"url": "https://emapi.imodules.com/v2/messages/REPLACE_ME_WITH_MESSAGE_ID/recipients?startAt=1000&maxResults=1000",
+			"description": "recipients",
+			"data": [],
+			"dataMode": "params",
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Authorization",
+					"value": "Bearer REPLACE_ME_WITH_access_token",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [
+				{
+					"key": "startAt",
+					"value": "1000",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "maxResults",
+					"value": "1000",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"auth": null,
+			"events": null,
+			"folder": null,
+			"headers": "Accept: application/json\nAuthorization: Bearer REPLACE_ME_WITH_access_token\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "89224146-e817-4c32-b5b8-91e9e593bcc4",
+			"name": "Opens",
+			"url": "https://emapi.imodules.com/v2/messages/REPLACE_ME_WITH_MESSAGE_ID/opens?startAt=1&maxResults=1",
+			"description": "opens",
+			"data": [],
+			"dataMode": "params",
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Authorization",
+					"value": "Bearer REPLACE_ME_WITH_access_token",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [
+				{
+					"key": "startAt",
+					"value": "1",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "maxResults",
+					"value": "1",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"auth": null,
+			"events": null,
+			"folder": null,
+			"headers": "Accept: application/json\nAuthorization: Bearer REPLACE_ME_WITH_access_token\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "a834cc85-f52f-4d39-b466-7c4755855487",
+			"name": "Clicks copy",
+			"url": "https://emapi.imodules.com/v2/messages/REPLACE_ME_WITH_MESSAGE_ID/clicks?startAt=0&maxResults=1000",
+			"description": "Clicks",
+			"data": [],
+			"dataMode": "params",
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Authorization",
+					"value": "Bearer REPLACE_ME_WITH_access_token",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [
+				{
+					"key": "startAt",
+					"value": "0",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "maxResults",
+					"value": "1000",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"auth": null,
+			"events": null,
+			"folder": null,
+			"headers": "Accept: application/json\nAuthorization: Bearer REPLACE_ME_WITH_access_token\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "e04b0383-fb48-42f2-bb84-dbee2539c4c2",
+			"name": "Get All Messages",
+			"url": "https://emapi.imodules.com/v2/messages?fromTimestamp=0&toTimestamp=9947483647000&startAt=0&maxResults=1000",
+			"description": "Get all messages",
+			"data": [],
+			"dataMode": "params",
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json;charset=UTF-8",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Authorization",
+					"value": "Bearer REPLACE_ME_WITH_access_token",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [
+				{
+					"key": "fromTimestamp",
+					"value": "0",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "toTimestamp",
+					"value": "9947483647000",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "startAt",
+					"value": "9",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "maxResults",
+					"value": "1000",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"auth": null,
+			"events": null,
+			"folder": null,
+			"headers": "Accept: application/json;charset=UTF-8\nAuthorization: Bearer REPLACE_ME_WITH_access_token\n",
+			"pathVariables": {}
+		}
+	]
+}

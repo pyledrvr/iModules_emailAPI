@@ -1,0 +1,263 @@
+-- Create table
+create table IM_EMAIL_HEADERS_TMP
+(
+  id                     NUMBER,
+  subcommunityid         NUMBER,
+  emailname              VARCHAR2(250),
+  fromname               VARCHAR2(250),
+  fromaddress            VARCHAR2(250),
+  subjectline            VARCHAR2(250),
+  preheader              VARCHAR2(200),
+  sentcount              NUMBER,
+  categoryname           VARCHAR2(150),
+  scheduleddatetimestamp VARCHAR2(50),
+  actualsendtimestamp    VARCHAR2(50),
+  dateadded              VARCHAR2(50)
+)
+tablespace USER_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 128K
+    next 128K
+    minextents 1
+    maxextents unlimited
+    pctincrease 0
+  );
+-- Grant/Revoke object privileges 
+grant select, insert, update, delete, references, alter, index on IM_EMAIL_HEADERS_TMP to ADVANCE with grant option;
+grant select, insert, update, delete, alter on IM_EMAIL_HEADERS_TMP to ADVROLE;
+-- Create table
+create table IM_EMAIL_HEADERS
+(
+  id             NUMBER,
+  subcommunityid NUMBER,
+  emailname      VARCHAR2(250),
+  fromname       VARCHAR2(250),
+  fromaddress    VARCHAR2(250),
+  subjectline    VARCHAR2(250),
+  preheader      VARCHAR2(200),
+  sentcount      NUMBER,
+  categoryname   VARCHAR2(150),
+  send_date      DATE,
+  date_added     DATE default sysdate,
+  bcharris_id    NUMBER
+)
+tablespace USER_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 128K
+    next 128K
+    minextents 1
+    maxextents unlimited
+    pctincrease 0
+  );
+-- Create/Recreate indexes 
+create index IM_EMAIL_HEADERS_KEY0 on IM_EMAIL_HEADERS (ID)
+  tablespace USER_INDEX
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 128K
+    next 128K
+    minextents 1
+    maxextents unlimited
+    pctincrease 0
+  );
+-- Grant/Revoke object privileges 
+grant select, insert, update, delete, references, alter, index on IM_EMAIL_HEADERS to ADVANCE with grant option;
+grant select, insert, update, delete, alter, debug on IM_EMAIL_HEADERS to ADVROLE;
+-- Create table
+create table IM_EMAIL_RECIPIENTS_TMP
+(
+  id              NUMBER,
+  email_header_id NUMBER,
+  emailaddress    VARCHAR2(250),
+  firstname       VARCHAR2(250),
+  lastname        VARCHAR2(250),
+  classyear       NUMBER,
+  memberid        NUMBER,
+  constituentid   VARCHAR2(10),
+  dateadded       NUMBER,
+  lastupdated     NUMBER,
+  date_added      DATE default sysdate
+)
+tablespace USER_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 128K
+    next 128K
+    minextents 1
+    maxextents unlimited
+    pctincrease 0
+  );
+-- Create/Recreate indexes 
+create index IM_EMAIL_RECIPIENTS_TMP_KEY0 on IM_EMAIL_RECIPIENTS_TMP (EMAIL_HEADER_ID, ID)
+  tablespace USER_INDEX
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 128K
+    next 128K
+    minextents 1
+    maxextents unlimited
+    pctincrease 0
+  );
+-- Grant/Revoke object privileges 
+grant select, insert, update, delete, references, alter, index on IM_EMAIL_RECIPIENTS_TMP to ADVANCE with grant option;
+grant select, insert, update, delete, alter on IM_EMAIL_RECIPIENTS_TMP to ADVROLE;
+-- Create table
+create table IM_EMAIL_RECIPIENTS
+(
+  email_header_id                NUMBER,
+  id                             NUMBER,
+  memberid                       NUMBER,
+  constituentid                  VARCHAR2(10),
+  emailaddress                   VARCHAR2(250),
+  date_added                     DATE default SYSDATE not null,
+  open_date                      DATE,
+  click_date                     DATE,
+  event_connection_to_registrant VARCHAR2(50),
+  event_dietary_restrictions     VARCHAR2(50)
+)
+tablespace USER_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 4M
+    next 4M
+    minextents 1
+    maxextents unlimited
+    pctincrease 0
+  );
+-- Create/Recreate indexes 
+create index IM_EMAIL_RECIPIENTS_KEY0 on IM_EMAIL_RECIPIENTS (EMAIL_HEADER_ID, CONSTITUENTID, OPEN_DATE)
+  tablespace USER_INDEX
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 128K
+    next 128K
+    minextents 1
+    maxextents unlimited
+    pctincrease 0
+  );
+create index IM_EMAIL_RECIPIENTS_KEY1 on IM_EMAIL_RECIPIENTS (EMAIL_HEADER_ID, ID)
+  tablespace USER_INDEX
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 128K
+    next 128K
+    minextents 1
+    maxextents unlimited
+    pctincrease 0
+  );
+-- Grant/Revoke object privileges 
+grant select, insert, update, delete, references, alter, index on IM_EMAIL_RECIPIENTS to ADVANCE with grant option;
+grant select, insert, update, delete, alter on IM_EMAIL_RECIPIENTS to ADVROLE;
+-- Create table
+create table IM_EMAIL_OPENS_TMP
+(
+  email_header_id NUMBER,
+  recipientid     NUMBER,
+  timestamp       NUMBER,
+  ipaddress       VARCHAR2(50),
+  date_added      DATE default SYSDATE not null
+)
+tablespace USER_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 128K
+    next 128K
+    minextents 1
+    maxextents unlimited
+    pctincrease 0
+  );
+-- Grant/Revoke object privileges 
+grant select, insert, update, delete, references, alter, index on IM_EMAIL_OPENS_TMP to ADVANCE with grant option;
+grant select, insert, update, delete, alter on IM_EMAIL_OPENS_TMP to ADVROLE;
+-- Create table
+create table IM_EMAIL_CLICKS_TMP
+(
+  email_header_id NUMBER,
+  recipientid     NUMBER,
+  timestamp       NUMBER,
+  ipaddress       VARCHAR2(50),
+  date_added      DATE default SYSDATE not null
+)
+tablespace USER_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 128K
+    next 128K
+    minextents 1
+    maxextents unlimited
+    pctincrease 0
+  );
+-- Grant/Revoke object privileges 
+grant select, insert, update, delete, references, alter, index on IM_EMAIL_CLICKS_TMP to ADVANCE with grant option;
+grant select, insert, update, delete, alter on IM_EMAIL_CLICKS_TMP to ADVROLE;
+create or replace view imodules_all_email_recipientsv as
+select IM_EMAIL_HEADERS.ID as email_header_id from IM_EMAIL_HEADERS , IM_EMAIL_HEADERS_tmp ieht
+where IM_EMAIL_HEADERS.ID = ieht.id
+and   send_date > sysdate-5
+and   IM_EMAIL_HEADERS.sentcount > 0
+/* dont need to get this twice....*/
+and IM_EMAIL_HEADERS.ID not in (select IM_EMAIL_RECIPIENTS.EMAIL_HEADER_ID from IM_EMAIL_RECIPIENTS) 
+order by 1 asc;
+create or replace view imodules_all_email_clicksv as
+select distinct email_header_id from (
+select IM_EMAIL_HEADERS.ID as email_header_id from IM_EMAIL_HEADERS
+where send_date > sysdate-10
+union all
+-- or not clicks look 30 days, maybe?
+select recipients.email_header_id from (
+select distinct IM_EMAIL_RECIPIENTS.EMAIL_HEADER_ID from IM_EMAIL_RECIPIENTS
+where IM_EMAIL_RECIPIENTS.DATE_ADDED is not null and IM_EMAIL_RECIPIENTS.CLICK_DATE is null) recipients,
+(select distinct IM_EMAIL_RECIPIENTS.EMAIL_HEADER_ID from IM_EMAIL_RECIPIENTS
+where IM_EMAIL_RECIPIENTS.DATE_ADDED is not null and IM_EMAIL_RECIPIENTS.CLICK_DATE is not null) clicks, IM_EMAIL_HEADERS
+where IM_EMAIL_HEADERS.ID = recipients.email_header_id
+and recipients.email_header_id = clicks.email_header_id (+)
+and clicks.email_header_id is null
+and IM_EMAIL_HEADERS.send_date > sysdate-20) sel, IM_EMAIL_HEADERS_tmp ieht
+where sel.email_header_id = ieht.id
+order by 1 asc
+;
+create or replace view email_stats as
+select "EMAIL_ID","SEND_DATE","EMAILNAME","FROMNAME","FROMADDRESS","SUBJECTLINE","CATEGORYNAME","SENTCOUNT","RECIPIENTS","OPENED","CLICKED" from (
+select
+t.id as email_id, to_char(t.send_date,'yyyy/mm/dd hh24:mi')  as send_date, t.emailname, t.fromname, t.fromaddress, t.subjectline, t.categoryname, t.sentcount
+, (select count(*) from im_email_recipients where im_email_recipients.email_header_id = t.id) as recipients
+, (select count(*) from im_email_recipients where im_email_recipients.email_header_id = t.id and im_email_recipients.open_date is not null) as opened
+, (select count(*) from im_email_recipients where im_email_recipients.email_header_id = t.id and im_email_recipients.click_date is not null) as clicked
+from IM_EMAIL_HEADERS t
+where t.send_date > to_date('20160427','yyyymmdd')
+)
+order by send_date desc
+;
+
