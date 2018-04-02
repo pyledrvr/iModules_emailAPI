@@ -1,6 +1,6 @@
 <?php
-/* test 506146 */
 error_reporting(E_ERROR | E_WARNING);
+include("imodules_all_email_local.php"); 
 $curl = curl_init();
 $email_header_id = $argv[1];
     echo " \n imodules_all_email_recipients.php starting. \n";
@@ -14,7 +14,7 @@ curl_setopt_array($curl, array(
   CURLOPT_CUSTOMREQUEST => "GET",
   CURLOPT_HTTPHEADER => array(
     "accept: application/json;charset=UTF-8",
-    "authorization: Bearer REPLACE_ME_WITH_access_token",
+    "authorization: Bearer $access_token",
     "cache-control: no-cache",
     "postman-token: f331a4b9-aa68-90cf-bd2e-06065d7dc890"
   ),
@@ -32,11 +32,8 @@ if(!is_array($array)){
 }
 $total = $array['total'];
 echo "total count is :" . $total . "\n";
-$tns = "(DESCRIPTION = (ADDRESS = (PROTOCOL = TCP)(HOST = REPLACE_ORACLE_HOST)(PORT = 1521)) (CONNECT_DATA = (SID = REPLACE_ORACLE_SID)))";
-$user = "REPLACE_ORACLE_USER";
-$pass = 'REPLACE_ORACLE_USER_PW';
 $db_conn = oci_connect($user, $pass, $tns);
-$cmdstr = "delete from IM_EMAIL_RECIPIENTS_TMP";
+$cmdstr = "delete from $schema.IM_EMAIL_RECIPIENTS_TMP";
 $st = OCI_Parse($db_conn, $cmdstr);
 if (!$st) {
     error_log("Unable to parse");
@@ -44,7 +41,7 @@ if (!$st) {
 }
 $exerror = OCI_Execute($st, OCI_COMMIT_ON_SUCCESS);  
 OCI_Free_Statement($st);
-$cmdstr = "insert into pitt_advance.IM_EMAIL_RECIPIENTS_TMP (id, emailaddress, firstname, lastname, classyear, memberid, constituentid, dateadded, lastupdated, email_header_id) 
+$cmdstr = "insert into $schema.IM_EMAIL_RECIPIENTS_TMP (id, emailaddress, firstname, lastname, classyear, memberid, constituentid, dateadded, lastupdated, email_header_id) 
 values (:v01, :v02, :v03, :v04, :v05, :v06, :v07, :v08, :v09, :v10)";
 $st = OCI_Parse($db_conn, $cmdstr);
 if (!$st) {
@@ -64,7 +61,7 @@ curl_setopt_array($curl2, array(
   CURLOPT_CUSTOMREQUEST => "GET",
   CURLOPT_HTTPHEADER => array(
     "accept: application/json;charset=UTF-8",
-    "authorization: Bearer REPLACE_ME_WITH_access_token",
+    "authorization: Bearer $access_token",
     "cache-control: no-cache",
     "postman-token: f331a4b9-aa68-90cf-bd2e-06065d7dc890"
   ),
@@ -98,7 +95,7 @@ $exerror = OCI_Execute($st, OCI_COMMIT_ON_SUCCESS);
 }
 } 
 OCI_Free_Statement($st);
-$cmdstr = "begin pitt_advance.iModules_emailAPI.imodules_all_email_recipients; end;";
+$cmdstr = "begin $schema.iModules_emailAPI.imodules_all_email_recipients; end;";
 $st = OCI_Parse($db_conn, $cmdstr);
 if (!$st) {
     error_log("Unable to parse");

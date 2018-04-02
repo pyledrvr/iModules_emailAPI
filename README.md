@@ -15,7 +15,7 @@ First, review https://support.imodules.com/hc/en-us/articles/228929707-Email-Met
 
 Then get an api key from imodules
 
-import json file into postman.
+import jason into postman.
 
 using the api key, now referred to as client_secret, and your client_id, get the access_token via "get JSON key for email stats"
 
@@ -25,12 +25,14 @@ in create_tables_views.pdc change pitt_advance to your schema and alter the tabl
 
 load up the package located in iModules_emailAPI.pck into your oracle schema.
 
-download ksh and php into a directory.  Update:
+download ksh and php into a directory.  
+
+Update imodules_all_email_local.php:
   REPLACE_ORACLE_HOST to host name where the DB is located
   REPLACE_ORACLE_SID to the sid
   REPLACE_ORACLE_USER to user id
   REPLACE_ORACLE_USER_PW to user pw
-  REPLACE_ME_WITH_access_token with access token retrieved above.
+  access_token to access_token
 
 Test and let me know.
 

@@ -1,6 +1,6 @@
 <?php
-/* test 506146 */
 error_reporting(E_ERROR | E_WARNING);
+include("imodules_all_email_local.php"); 
 $curl = curl_init(); 
 echo " \n imodules_all_email_opens.php starting. " . date(DATE_RFC2822) . "\n";
 curl_setopt_array($curl, array(
@@ -13,7 +13,7 @@ curl_setopt_array($curl, array(
   CURLOPT_CUSTOMREQUEST => "GET",
   CURLOPT_HTTPHEADER => array(
     "accept: application/json;charset=UTF-8",
-    "authorization: Bearer REPLACE_ME_WITH_access_token",
+    "authorization: Bearer $access_token",
     "cache-control: no-cache",
     "postman-token: f331a4b9-aa68-90cf-bd2e-06065d7dc890"
   ),
@@ -31,11 +31,8 @@ if(!is_array($array)){
 }
 $total = $array['total'];
 echo "total is :" . $total . "\n";
-$tns = "(DESCRIPTION = (ADDRESS = (PROTOCOL = TCP)(HOST = REPLACE_ORACLE_HOST)(PORT = 1521)) (CONNECT_DATA = (SID = REPLACE_ORACLE_SID)))";
-$user = "REPLACE_ORACLE_USER";
-$pass = 'REPLACE_ORACLE_USER_PW';
 $db_conn = oci_connect($user, $pass, $tns);
-$cmdstr = "delete from pitt_advance.IM_EMAIL_OPENS_TMP";
+$cmdstr = "delete from $schema.IM_EMAIL_OPENS_TMP";
 $st = OCI_Parse($db_conn, $cmdstr);
 if (!$st) {
     error_log("Unable to parse");
@@ -43,7 +40,7 @@ if (!$st) {
 }
 $exerror = OCI_Execute($st, OCI_COMMIT_ON_SUCCESS);  
 OCI_Free_Statement($st);
-$cmdstr = "insert into pitt_advance.IM_EMAIL_OPENS_TMP (email_header_id, recipientId, timestamp, ipAddress) 
+$cmdstr = "insert into $schema.IM_EMAIL_OPENS_TMP (email_header_id, recipientId, timestamp, ipAddress) 
 values (:v01, :v02, :v03, :v04)";
 $st = OCI_Parse($db_conn, $cmdstr);
 if (!$st) {
@@ -63,7 +60,7 @@ curl_setopt_array($curl2, array(
   CURLOPT_CUSTOMREQUEST => "GET",
   CURLOPT_HTTPHEADER => array(
     "accept: application/json;charset=UTF-8",
-    "authorization: Bearer REPLACE_ME_WITH_access_token",
+    "authorization: Bearer $access_token",
     "cache-control: no-cache",
     "postman-token: f331a4b9-aa68-90cf-bd2e-06065d7dc890"
   ),
@@ -91,7 +88,7 @@ $exerror = OCI_Execute($st, OCI_COMMIT_ON_SUCCESS);
 }
 }  
 OCI_Free_Statement($st);
-$cmdstr = "begin pitt_advance.iModules_emailAPI.imodules_all_email_opens; end;";
+$cmdstr = "begin $schema.iModules_emailAPI.imodules_all_email_opens; end;";
 $st = OCI_Parse($db_conn, $cmdstr);
 if (!$st) {
     error_log("Unable to parse");

@@ -1,12 +1,10 @@
 <?php
 error_reporting(E_ERROR | E_WARNING);
-    echo " \n imodules_all_email_opens_driver.php starting. \n";
+echo " \n imodules_all_email_opens_driver.php starting. \n";
+include("imodules_all_email_local.php"); 
 setlocale(LC_MONETARY, 'en_US');
-$tns = "(DESCRIPTION = (ADDRESS = (PROTOCOL = TCP)(HOST = REPLACE_ORACLE_HOST)(PORT = 1521)) (CONNECT_DATA = (SID = REPLACE_ORACLE_SID)))";
-$user = "IMODULES_BATCH";
-$pass = 'REPLACE_ORACLE_USER_PW';
 $conn = oci_connect($user, $pass, $tns);
-$stmt = oci_parse($conn, "select email_header_id from pitt_advance.imodules_all_email_opensv");
+$stmt = oci_parse($conn, "select email_header_id from $schema.imodules_all_email_opensv");
 oci_execute($stmt);
 $nrows = oci_fetch_all($stmt, $results);
 if ($nrows > 0) {
