@@ -1,7 +1,7 @@
 # iModules_emailAPI
 Collection to get email data from iModules, all email headers and recipients/opens/clicks and store in oracle tables.
 
-Assumes POSTMAN.
+Assumes knowledge of POSTMAN and Linux.
 
 Depends on PHP/ORACLE/OCI8/CURL
 
